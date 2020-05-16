@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
       },
       function (err) {
         startRecognizeOnceAsyncButton.disabled = false;
-        phraseDiv.innerHTML += err;
+        phraseDiv.value = err;
         console.error(err);
 
         recognizer.close();
