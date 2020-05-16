@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rozpoznání řeči</title>
+  <meta charset="utf-8" />
+  
+  <link rel="stylesheet" href="https://unpkg.com/mvp.css">
+  <link rel="stylesheet" href="style.css">
+  <!-- Speech SDK  -->
+  <script src="js/microsoft.cognitiveservices.speech.sdk.bundle.min.js" defer></script>
+  <script src="js/process.js"></script>
+</head>
+<body style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; font-size:13px;">
+  <main>
+  <div id="warning">
+    <h1 style="font-weight:500;">Speech Recognition Speech SDK not found (microsoft.cognitiveservices.speech.sdk.bundle.js missing).</h1>
+  </div>
+  
+  <div id="content" style="display:none">
+    <table width="100%">
+      <tr>
+        <td></td>
+        <td><h1 style="font-weight:500;">Rozpoznání řeci pomocí Azure Speech to Text</h1></td>
+      </tr>
+      <tr>
+        <td align="right">Subscription klíč:</td>
+        <td><input id="subscriptionKey" type="text" size="40"></td>
+      </tr>
+      <tr>
+        <td align="right">Zvolený region</td>
+        <td><input id="serviceRegion" type="text" size="40" value="westus"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><button id="startRecognizeOnceAsyncButton">Začít nahrávání</button></td>
+      </tr>
+      <tr>
+        <td align="right" valign="top">Výsledek</td>
+        <td><textarea id="phraseDiv"></textarea></td>
+      </tr>
+    </table>
+  </div>
+</main>
+</body>
+</html>
