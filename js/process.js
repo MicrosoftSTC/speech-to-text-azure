@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
       speechConfig = SpeechSDK.SpeechConfig.fromAuthorizationToken(authorizationToken, serviceRegion.value);
     } else {
       if (subscriptionKey.value === "" || subscriptionKey.value === "subscription") {
-        alert("Please enter your Microsoft Cognitive Services Speech subscription key!");
+        alert("Zadejte klíč!");
         return;
       }
       speechConfig = SpeechSDK.SpeechConfig.fromSubscription(subscriptionKey.value, serviceRegion.value);
