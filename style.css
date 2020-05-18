@@ -4,3 +4,13 @@
     height:200px;
     max-width: 90vw;
 }
+@media (prefers-color-scheme: dark) {
+	body {
+		background: #2e2e2e;
+		color: #e4e4e4 !important;
+    }
+    input, textarea{
+        background: #444444;
+        color: white;
+    }
+}
