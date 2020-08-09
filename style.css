@@ -1,19 +1,20 @@
 #phraseDiv {
-    display: inline-block;
-    width:820px;
-    height:200px;
-    max-width: 100%;
+  display: inline-block;
+  width: 820px;
+  height: 200px;
+  max-width: 100%;
 }
 @media (prefers-color-scheme: dark) {
-	body {
-		background: #2e2e2e;
-		color: #e4e4e4 !important;
-    }
-    input, textarea{
-        background: #444444;
-        color: white;
-    }
+  body {
+    background: #2e2e2e;
+    color: #e4e4e4 !important;
+  }
+  input,
+  textarea {
+    background: #444444;
+    color: white;
+  }
 }
 td {
-    max-width: 26vw;
+  max-width: 26vw;
 }
