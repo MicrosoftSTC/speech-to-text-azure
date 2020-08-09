@@ -2,7 +2,7 @@
     display: inline-block;
     width:820px;
     height:200px;
-    max-width: 80vw;
+    max-width: 100%;
 }
 @media (prefers-color-scheme: dark) {
 	body {
@@ -13,4 +13,7 @@
         background: #444444;
         color: white;
     }
+}
+td {
+    max-width: 26vw;
 }
