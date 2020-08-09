@@ -6,13 +6,13 @@ let authorizationToken;
 let SpeechSDK;
 let recognizer;
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
   startRecognizeOnceAsyncButton = document.getElementById("startRecognizeOnceAsyncButton");
   subscriptionKey = document.getElementById("subscriptionKey");
   serviceRegion = document.getElementById("serviceRegion");
   phraseDiv = document.getElementById("phraseDiv");
 
-  startRecognizeOnceAsyncButton.addEventListener("click", function () {
+  startRecognizeOnceAsyncButton.addEventListener("click", () => {
     startRecognizeOnceAsyncButton.disabled = true;
     phraseDiv.innerHTML = "";
 
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
     recognizer = new SpeechSDK.SpeechRecognizer(speechConfig, audioConfig);
 
     recognizer.recognizeOnceAsync(
-      function (result) {
+      (result) => {
         startRecognizeOnceAsyncButton.disabled = false;
         console.log(result.privText);
         phraseDiv.value = result.privText;
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
         recognizer.close();
         recognizer = undefined;
       },
-      function (err) {
+      (err) => {
         startRecognizeOnceAsyncButton.disabled = false;
         phraseDiv.value = err;
         console.error(err);
@@ -59,8 +59,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('warning').style.display = 'none';
 
     // in case we have a function for getting an authorization token, call it.
-    if (typeof RequestAuthorizationToken === "function") {
-        RequestAuthorizationToken();
-    }
+    if (typeof RequestAuthorizationToken === "function") RequestAuthorizationToken();
   }
 });
