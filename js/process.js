@@ -3,7 +3,9 @@ let SpeechSDK;
 let recognizer;
 
 /* DOM */
-const startRecognizeOnceAsyncButton = document.getElementById("startRecognizeOnceAsyncButton");
+const startRecognizeOnceAsyncButton = document.getElementById(
+  "startRecognizeOnceAsyncButton"
+);
 const subscriptionKey = document.getElementById("subscriptionKey");
 const serviceRegion = document.getElementById("serviceRegion");
 const phraseDiv = document.getElementById("phraseDiv");
@@ -16,17 +18,26 @@ document.addEventListener("DOMContentLoaded", () => {
     // if we got an authorization token, use the token. Otherwise use the provided subscription key
     let speechConfig;
     if (authorizationToken) {
-      speechConfig = SpeechSDK.SpeechConfig.fromAuthorizationToken(authorizationToken, serviceRegion.value);
+      speechConfig = SpeechSDK.SpeechConfig.fromAuthorizationToken(
+        authorizationToken,
+        serviceRegion.value
+      );
     } else {
-      if (subscriptionKey.value === "" || subscriptionKey.value === "subscription") {
+      if (
+        subscriptionKey.value === "" ||
+        subscriptionKey.value === "subscription"
+      ) {
         alert("Zadejte klíč!");
         return;
       }
-      speechConfig = SpeechSDK.SpeechConfig.fromSubscription(subscriptionKey.value, serviceRegion.value);
+      speechConfig = SpeechSDK.SpeechConfig.fromSubscription(
+        subscriptionKey.value,
+        serviceRegion.value
+      );
     }
 
     speechConfig.speechRecognitionLanguage = "en-US";
-    const audioConfig  = SpeechSDK.AudioConfig.fromDefaultMicrophoneInput();
+    const audioConfig = SpeechSDK.AudioConfig.fromDefaultMicrophoneInput();
     recognizer = new SpeechSDK.SpeechRecognizer(speechConfig, audioConfig);
 
     recognizer.recognizeOnceAsync(
@@ -44,17 +55,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
         recognizer.close();
         recognizer = undefined;
-      });
+      }
+    );
   });
 
   if (!!window.SpeechSDK) {
     SpeechSDK = window.SpeechSDK;
     startRecognizeOnceAsyncButton.disabled = false;
 
-    document.getElementById('content').style.display = 'block';
-    document.getElementById('warning').style.display = 'none';
+    document.getElementById("content").style.display = "block";
+    document.getElementById("warning").style.display = "none";
 
     // in case we have a function for getting an authorization token, call it.
-    if (typeof RequestAuthorizationToken === "function") RequestAuthorizationToken();
+    if (typeof RequestAuthorizationToken === "function")
+      RequestAuthorizationToken();
   }
 });
