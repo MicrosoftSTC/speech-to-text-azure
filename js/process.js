@@ -1,17 +1,14 @@
-let phraseDiv;
-let startRecognizeOnceAsyncButton;
-
-let subscriptionKey, serviceRegion;
 let authorizationToken;
 let SpeechSDK;
 let recognizer;
 
-document.addEventListener("DOMContentLoaded", () => {
-  startRecognizeOnceAsyncButton = document.getElementById("startRecognizeOnceAsyncButton");
-  subscriptionKey = document.getElementById("subscriptionKey");
-  serviceRegion = document.getElementById("serviceRegion");
-  phraseDiv = document.getElementById("phraseDiv");
+/* DOM */
+const startRecognizeOnceAsyncButton = document.getElementById("startRecognizeOnceAsyncButton");
+const subscriptionKey = document.getElementById("subscriptionKey");
+const serviceRegion = document.getElementById("serviceRegion");
+const phraseDiv = document.getElementById("phraseDiv");
 
+document.addEventListener("DOMContentLoaded", () => {
   startRecognizeOnceAsyncButton.addEventListener("click", () => {
     startRecognizeOnceAsyncButton.disabled = true;
     phraseDiv.innerHTML = "";
@@ -35,7 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
     recognizer.recognizeOnceAsync(
       (result) => {
         startRecognizeOnceAsyncButton.disabled = false;
-        console.log(result.privText);
         phraseDiv.value = result.privText;
 
         recognizer.close();
