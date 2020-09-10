@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
         subscriptionKey.value === "subscription"
       ) {
         alert("Zadejte klíč!");
+        startRecognizeOnceAsyncButton.disabled = false;
         return;
       }
       speechConfig = SpeechSDK.SpeechConfig.fromSubscription(
