@@ -1,7 +1,3 @@
-let authorizationToken;
-let SpeechSDK;
-let recognizer;
-
 /* DOM */
 const startRecognizeOnceAsyncButton = document.getElementById(
   "startRecognizeOnceAsyncButton"
@@ -9,6 +5,10 @@ const startRecognizeOnceAsyncButton = document.getElementById(
 const subscriptionKey = document.getElementById("subscriptionKey");
 const serviceRegion = document.getElementById("serviceRegion");
 const phraseDiv = document.getElementById("phraseDiv");
+
+let authorizationToken;
+let SpeechSDK;
+let recognizer;
 
 document.addEventListener("DOMContentLoaded", () => {
   startRecognizeOnceAsyncButton.addEventListener("click", () => {
